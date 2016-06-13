@@ -1,0 +1,7 @@
+[core]
+	excludesfile = ~/.gitignore
+[user]
+	name = Ryan Wails
+	email = ryanswails@gmail.com
+[push]
+	default = simple
