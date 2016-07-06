@@ -9,6 +9,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdTree'
 Plugin 'majutsushi/tagbar'
 Plugin 'weynhamz/vim-plugin-minibufexpl'
+Plugin 'vim-airline/vim-airline'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
