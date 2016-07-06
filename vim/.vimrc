@@ -51,3 +51,6 @@ nmap <F8> :TagbarToggle<CR>
 set tags=./tags;/
 
 let g:miniBufExplBuffersNeeded = 1
+
+set cursorline
+hi CursorLine term=bold cterm=bold
