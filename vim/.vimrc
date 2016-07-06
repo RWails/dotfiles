@@ -11,6 +11,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'vim-airline/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
