@@ -12,11 +12,15 @@ Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'vim-airline/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
 
 call vundle#end()
 
 filetype plugin indent on
 
+" set term=screen-256color
+set lazyredraw
 syntax on
 
 filetype plugin indent on
@@ -36,11 +40,19 @@ set vb
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
 
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
 
+" let g:solarized_termcolors=256
+
+set t_Co=256
 set background=light
+" colorscheme solarized
 colorscheme eink
 
 set mouse=a
@@ -54,3 +66,17 @@ let g:miniBufExplBuffersNeeded = 1
 
 set cursorline
 hi CursorLine term=bold cterm=bold
+hi Comment cterm=italic ctermbg=LightGrey
+hi String cterm=italic
+
+let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'py':1, 'python':1 }
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
