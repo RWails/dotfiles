@@ -8,12 +8,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdTree'
 Plugin 'majutsushi/tagbar'
-Plugin 'weynhamz/vim-plugin-minibufexpl'
+" Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'vim-airline/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rhysd/vim-clang-format'
+" Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 
@@ -28,8 +31,8 @@ set nu
 set laststatus=2
 set ruler
 set expandtab
-set tabstop=3
-set shiftwidth=3
+set tabstop=2
+set shiftwidth=2
 set nobackup
 
 " imap <Tab> <C-P>
@@ -66,11 +69,23 @@ let g:miniBufExplBuffersNeeded = 1
 
 set cursorline
 hi CursorLine term=bold cterm=bold
-hi Comment cterm=italic ctermbg=LightGrey
+hi Comment cterm=italic ctermbg=LightGray
 hi String cterm=italic
 
 let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'py':1, 'python':1 }
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" 
+" let g:syntastic_c_checkers = ['gcc']
+" let g:syntastic_cpp_checkers = ['gcc']
 
 noremap  <Up> ""
 noremap! <Up> <Esc>
@@ -80,3 +95,9 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
+
+let g:clang_format#code_style = 'google'
+
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+nmap <Leader>C :ClangFormatAutoToggle<CR>
